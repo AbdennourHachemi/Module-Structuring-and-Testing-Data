@@ -1,11 +1,77 @@
+// function formatAs12HourClock(time) {
+//   //extract digits representing hours
+//   const hours = Number(time.slice(0, 2));
+//   //if houre value over 12, subtract 12
+//   //if hour value under 12 , continue
+//   if (time === "00:00") {
+//     return `12:00 am`;
+//   }
+//   if (hours > 12) {
+//     // add pm and reurn value
+//     return `${hours - 12}:00 pm`;
+//   }
+//   //add am or pm
+//   //return new value
+//   return `${time} am`;
+// }
+
 function formatAs12HourClock(time) {
 
-  const hours = Number(time.slice(0, 2));
-
-  if (hours > 12) {
-    return `${hours - 12}:00 pm`;
+  console.log(time.length)
+  
+  if (time.length == 4) {
+    console.log("got here")
+    time=time.padStart(5, "0")
   }
-  return `${time} am`;
+  
+   if (typeof time !== "string") {
+     return "nccorect timing format";
+   }
+
+   const match = time.match(/^(\d{1,2}):(\d{2})$/);
+
+   if (!match) {
+     return "Inccorect timing format";
+   }
+
+ 
+  
+  const hours = Number(time.slice(0, 2));
+  const minutes = Number(time.slice(3, 5));
+  console.log(hours + ` <------------look here hour`);
+  console.log(time + ` <------------look here time`);
+  
+
+  if (time === "00:00") {
+    return `12:00 am`;
+  }
+  if (time === "12:00") {
+    return `12:00 pm`;
+  }
+ 
+
+  if (hours < 12) {
+    return `${time} am`;
+  } else if (hours == 12) {
+    return `${time} am`;
+  } else if (hours == 24) {
+    return `12:00 am`;
+  }
+
+  if (hours > 12 && hours < 22 && minutes < 10) {
+    return `${(hours - 12).toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")} pm`;
+  }
+  if (hours > 12 && hours < 22 && minutes >= 10) {
+    return `${(hours - 12).toString().padStart(2, "0")}:${minutes} pm`;
+  }
+  if (hours >= 22 && minutes < 10) {
+    return `${hours - 12}:${minutes.toString().padStart(2, "0")} pm`;
+  }
+  if (hours >= 22 && minutes >= 10) {
+    return `${hours - 12}:${minutes} pm`;
+  }
 }
 
-export {formatAs12HourClock};
+export { formatAs12HourClock };
+
+
