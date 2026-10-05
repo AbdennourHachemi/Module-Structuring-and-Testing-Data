@@ -41,7 +41,4 @@ test("can correctly handel non digit format entries", function () {
   |         00        |        00             |
   |___________________|___________________ ___|
             
-  
- * 
-
  */
