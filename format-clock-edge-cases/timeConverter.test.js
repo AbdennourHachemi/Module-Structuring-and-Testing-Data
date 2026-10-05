@@ -17,7 +17,7 @@ test("can corectly convert mid-day", () =>
   assert.equal(formatAs12HourClock("12:00"), "12:00 pm"));
 
 test("can corectly convert half an hour passed midnight", () =>
-  assert.equal(formatAs12HourClock("00:30"), "00:30 am"));
+  assert.equal(formatAs12HourClock("00:30"), "12:30 am"));
 
 test("can correctly convert time with missing leading zero", function () {
   assert.equal(formatAs12HourClock("9:00"), "09:00 am");

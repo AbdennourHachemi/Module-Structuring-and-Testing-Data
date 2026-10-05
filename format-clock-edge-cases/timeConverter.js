@@ -1,8 +1,6 @@
 function formatAs12HourClock(time) {
-  console.log(time.length);
-
   if (time.length == 4) {
-    console.log("got here");
+    c;
     time = time.padStart(5, "0");
   }
 
@@ -19,19 +17,22 @@ function formatAs12HourClock(time) {
   const hours = Number(time.slice(0, 2));
   const minutes = Number(time.slice(3, 5));
 
-  if (time === "00:00") {
-    return `12:00 am`;
-  }
   if (time === "12:00") {
     return `12:00 pm`;
   }
 
   if (hours < 12) {
     return `${time} am`;
-  } else if (hours == 12) {
-    return `${time} am`;
-  } else if (hours == 24) {
+  }
+  if (hours >= 12) {
+    return `${time} pm`;
+  }
+  if (hours == 24) {
     return `12:00 am`;
+  }
+
+  if (hours > 12 && hours < 22 && minutes < 10) {
+    return `${(hours - 12).toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")} pm`;
   }
 
   if (hours > 12 && hours < 22 && minutes < 10) {
@@ -45,6 +46,9 @@ function formatAs12HourClock(time) {
   }
   if (hours >= 22 && minutes >= 10) {
     return `${hours - 12}:${minutes} pm`;
+  }
+  if (hours >= 12 && minutes >= 10) {
+    return `${hours}:${minutes} pm`;
   }
 }
 
