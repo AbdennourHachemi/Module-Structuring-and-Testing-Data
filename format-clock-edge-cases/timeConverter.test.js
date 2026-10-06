@@ -24,7 +24,7 @@ test("can correctly convert time with missing leading zero", function () {
 });
 
 test("can correctly handel non digit format entries", function () {
-  assert.equal(formatAs12HourClock("nineOclock"), "Inccorect timing format");
+  assert.equal(formatAs12HourClock("nineOclock"), "Incorrect timing format");
 });
 /* ************************       Edge cases  Minutes     *****************************************************/
 /*   over one hour <- 60                         30                                       0 -> negative number  */
