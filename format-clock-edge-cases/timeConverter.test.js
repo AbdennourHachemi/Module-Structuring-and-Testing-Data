@@ -33,3 +33,6 @@ test("can correctly handel 1 pm", function () {
 test("can correctly handel one minute before midnight", function () {
   assert.equal(formatAs12HourClock("23:59"), "11:59 pm");
 });
+test("can correctly handle one minute after midday", function () {
+  assert.equal(formatAs12HourClock("12:01"), "12:01 pm");
+});
