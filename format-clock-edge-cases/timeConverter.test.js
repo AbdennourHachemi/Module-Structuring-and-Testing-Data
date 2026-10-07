@@ -23,12 +23,10 @@ test("can correctly handel non digit format entries", function () {
 test("can correctly handel one minute after midnight", function () {
   assert.equal(formatAs12HourClock("00:01"), "12:01 am");
 });
-test("can correctly handel one minute before miday", function () {
+test("can correctly handel one minute before midday", function () {
   assert.equal(formatAs12HourClock("11:59"), "11:59 am");
 });
-test("can correctly handel one minute after miday", function () {
-  assert.equal(formatAs12HourClock("00:01"), "12:01 am");
-});
+
 test("can correctly handel 1 pm", function () {
   assert.equal(formatAs12HourClock("13:00"), "01:00 pm");
 });
