@@ -1,5 +1,7 @@
 // implement a function countChar that counts the number of times a character occurs in a string
 import { countChar } from "./count.js";
+import { test, expect } from "@jest/globals";
+
 // Given a string `str` and a single character `char` to search for,
 // When the countChar function is called with these inputs,
 // Then it should:
@@ -22,3 +24,10 @@ test("should count multiple occurrences of a character", () => {
 // And a character `char` that does not exist within `str`.
 // When the function is called with these inputs,
 // Then it should return 0, indicating that no occurrences of `char` were found.
+
+test("should indicate no occurrences of a character", () => {
+  const str = "abcde";
+  const char = "f";
+  const numberOfOcurrence = countChar(str, char);
+  expect(numberOfOcurrence).toEqual(0);
+});
