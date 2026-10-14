@@ -1,12 +1,19 @@
 export function getOrdinalNumber(num) {
-  if (String(num).match(/\b(?!11\b)\d*1\b/)) {
-    return `${num}st`;
+  const lastTwoDigits = num % 100;
+
+  // Handle exceptions: 11th, 12th, 13th, 111th, etc.
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+    return `${num}th`;
   }
-  if (String(num).match(/\b(?!12\b)\d*2\b/)) {
-    return `${num}nd`;
+
+  switch (num % 10) {
+    case 1:
+      return `${num}st`;
+    case 2:
+      return `${num}nd`;
+    case 3:
+      return `${num}rd`;
+    default:
+      return `${num}th`;
   }
-  if (String(num).match(/\b(?!13\b)\d*3\b/)) {
-    return `${num}rd`;
-  }
-  return `${num}th`;
 }

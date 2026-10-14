@@ -48,3 +48,13 @@ test("should append 'th' for numbers ending with 4,5,6 ,7 ,8 or 9 ", () => {
   expect(getOrdinalNumber(638398)).toEqual("638398th");
   expect(getOrdinalNumber(34454559)).toEqual("34454559th");
 });
+
+// Case 5: Numbers ending with 3digit teen expcetions 
+// When the number ends with ,(111, 112,113)
+// Then the function should return a string by appending "th" to the number.
+test("should append 'th' for numbers ending with ", () => {
+  expect(getOrdinalNumber(111)).toEqual("111th");
+  expect(getOrdinalNumber(112)).toEqual("112th");
+  expect(getOrdinalNumber(113)).toEqual("113th");
+  
+});
