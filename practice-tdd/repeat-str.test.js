@@ -48,6 +48,7 @@ test("should return an empty string", () => {
 test("should throw an error, as negative counts are not valid.", () => {
   const str = "hello";
   const count = -3;
-  const repeatedStr = repeatStr(str, count);
-  expect(repeatedStr).toEqual("Error! negative counts are not valid");
+  expect(() => repeatStr(str, count)).toThrow(
+    "Error! negative counts are not valid"
+  );
 });
