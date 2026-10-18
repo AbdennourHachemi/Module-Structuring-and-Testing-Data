@@ -2,30 +2,51 @@ import { isProperFraction } from "../implement/2-is-proper-fraction.js";
 
 // TODO: Write tests in Jest syntax to cover all combinations of positives, negatives, zeros, and other categories.
 
-// Special case: numerator is zero
-test(`should return false when denominator is zero`, () => {
-  expect(isProperFraction(1, 0)).toEqual(false);
+test("should return false when denominator is zero", () => {
+  expect(isProperFraction(1, 0)).toBe(false);
 });
 
-
-test("decimal numerator should return flase", () => {
-  
-  assert.equal(isProperFraction(0.5, 2), false);
+test("decimal numerator should return false", () => {
+  expect(isProperFraction(0.5, 2)).toBe(false);
 });
-
 
 test("zero numerator", () => {
-  assert.equal(isProperFraction(0, 5), true);
+  expect(isProperFraction(0, 5)).toBe(true);
 });
 
-test("numerator bigger then denumnator", () => {
-  assert.equal(isProperFraction(20, 15), false);
-});
-test("zero denumator", () => {
-  assert.equal(isProperFraction(100, 0), false);
+test("numerator bigger than denominator", () => {
+  expect(isProperFraction(20, 15)).toBe(false);
 });
 
-test("equal numrator and denumerator ", () => {
-  assert.equal(isProperFraction(3, 3), false);
+test("zero denominator", () => {
+  expect(isProperFraction(100, 0)).toBe(false);
+});
+
+test("equal numerator and denominator", () => {
+  expect(isProperFraction(3, 3)).toBe(false);
+});
+
+test("should return false when denominator is zero", () => {
+  expect(isProperFraction(1, 0)).toBe(false);
+});
+
+test("decimal numerator should return false", () => {
+  expect(isProperFraction(0.5, 2)).toBe(false);
+});
+
+test("zero numerator", () => {
+  expect(isProperFraction(0, 5)).toBe(true);
+});
+
+test("numerator bigger than denominator", () => {
+  expect(isProperFraction(20, 15)).toBe(false);
+});
+
+test("zero denominator should fail", () => {
+  expect(isProperFraction(100, 0)).toBe(false);
+});
+
+test("negative numerator should pass", () => {
+  expect(isProperFraction(-75, 100)).toBe(true);
 });
 
