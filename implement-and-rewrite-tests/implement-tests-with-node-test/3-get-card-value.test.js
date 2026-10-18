@@ -14,3 +14,35 @@ test("Arbitrary non-card string", () => {
 });
 
 // TODO: What other invalid card cases can you think of?
+test("Ace returns 11", () => {
+  assert.equal(getCardValue("A♠"), 11);
+});
+
+test("Number card returns its numeric value", () => {
+  assert.equal(getCardValue("2♥"), 2);
+  assert.equal(getCardValue("7♦"), 7);
+  assert.equal(getCardValue("10♣"), 10);
+});
+
+test("Face cards return 10", () => {
+  assert.equal(getCardValue("J♣"), 10);
+  assert.equal(getCardValue("Q♦"), 10);
+  assert.equal(getCardValue("K♥"), 10);
+});
+
+test("Invalid rank throws an error", () => {
+  assert.throws(() => getCardValue("11♠"), Error);
+  assert.throws(() => getCardValue("X♥"), Error);
+});
+
+test("Invalid suit throws an error", () => {
+  assert.throws(() => getCardValue("A★"), Error);
+});
+
+test("Invalid format throws an error", () => {
+  assert.throws(() => getCardValue("A"), Error);
+  assert.throws(() => getCardValue("♠A"), Error);
+  assert.throws(() => getCardValue(" A♠"), Error);
+  assert.throws(() => getCardValue("A♠♠"), Error);
+});
+

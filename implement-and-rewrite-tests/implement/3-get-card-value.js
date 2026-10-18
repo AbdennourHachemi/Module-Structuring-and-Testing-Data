@@ -24,5 +24,21 @@
 // execute the code to ensure all tests pass.
 
 export function getCardValue(card) {
-  // TODO: Implement this function
+  const match = /^(A|[2-9]|10|J|Q|K)([♠♥♦♣])$/.exec(card);
+
+  if (!match) {
+    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
+  }
+
+  const rank = match[1];
+
+  if (rank === "A") {
+    return 11;
+  }
+
+  if (["J", "Q", "K"].includes(rank)) {
+    return 10;
+  }
+
+  return Number(rank);
 }

@@ -16,3 +16,34 @@ test(`Should return 11 when given an ace card`, () => {
 // please refer to the Jest documentation:
 // https://jestjs.io/docs/expect#tothrowerror
 
+test("Number card returns its numeric value", () => {
+  expect(getCardValue("2♥")).toEqual(2);
+  expect(getCardValue("7♦")).toEqual(7);
+  expect(getCardValue("10♣")).toEqual(10);
+});
+
+test("Face cards return 10", () => {
+  expect(getCardValue("J♣")).toEqual(10);
+  expect(getCardValue("Q♦")).toEqual(10);
+  expect(getCardValue("K♥")).toEqual(10);
+});
+
+test("Invalid rank throws an error", () => {
+  expect(() => getCardValue("11♠")).toThrow(Error);
+  expect(() => getCardValue("X♥")).toThrow(Error);
+});
+
+test("Invalid suit throws an error", () => {
+  expect(() => getCardValue("A★")).toThrow(Error);
+});
+
+test("Invalid format throws an error", () => {
+  expect(() => getCardValue("A")).toThrow(Error);
+  expect(() => getCardValue("♠A")).toThrow(Error);
+  expect(() => getCardValue(" A♠")).toThrow(Error);
+  expect(() => getCardValue("A♠♠")).toThrow(Error);
+});
+
+test("Arbitrary non-card string", () => {
+  expect(() => getCardValue("invalid")).toThrow();
+});

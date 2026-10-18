@@ -5,7 +5,6 @@ import { isProperFraction } from "../implement/2-is-proper-fraction.js";
 test("should return false when denominator is zero", () => {
   expect(isProperFraction(1, 0)).toBe(false);
 });
-
 test("decimal numerator should return false", () => {
   expect(isProperFraction(0.5, 2)).toBe(false);
 });
