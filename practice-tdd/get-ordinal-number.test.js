@@ -1,4 +1,5 @@
 import { getOrdinalNumber } from "./get-ordinal-number.js";
+
 // In this week's prep, we started implementing getOrdinalNumber.
 
 // Continue testing and implementing getOrdinalNumber for additional cases.
@@ -52,9 +53,22 @@ test("should append 'th' for numbers ending with 4,5,6 ,7 ,8 or 9 ", () => {
 // Case 5: Numbers ending with 3digit teen expcetions 
 // When the number ends with ,(111, 112,113)
 // Then the function should return a string by appending "th" to the number.
-test("should append 'th' for numbers ending with ", () => {
+test("should append 'th' for numbers in 100's ending with 11, 12 , 13", () => {
   expect(getOrdinalNumber(111)).toEqual("111th");
   expect(getOrdinalNumber(112)).toEqual("112th");
   expect(getOrdinalNumber(113)).toEqual("113th");
+  
+});
+
+
+// Case 6:A test case handling the special cases like 11,12,13,101 & 103 
+
+
+test("should append 'th' for numbers ending with ", () => {
+  expect(getOrdinalNumber(11)).toEqual("11th");
+  expect(getOrdinalNumber(12)).toEqual("12th");
+  expect(getOrdinalNumber(13)).toEqual("13th");
+   expect(getOrdinalNumber(101)).toEqual("101st");
+   expect(getOrdinalNumber(103)).toEqual("103rd");
   
 });
