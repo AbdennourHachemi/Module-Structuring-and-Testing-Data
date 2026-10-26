@@ -1,17 +1,15 @@
 import { getOrdinalNumber } from "./get-ordinal-number.js";
 
 // In this week's prep, we started implementing getOrdinalNumber.
-
 // Continue testing and implementing getOrdinalNumber for additional cases.
 // Write your tests using Jest — remember to run your tests often for continual feedback.
-
 // To ensure thorough testing, we need broad scenarios that cover all possible cases.
 // Listing individual values, however, can quickly lead to an unmanageable number of test cases.
 // Instead of writing tests for individual numbers, consider grouping all possible input values
 // into meaningful categories. Then, select representative samples from each category to test.
 // This approach improves coverage and makes our tests easier to maintain.
 
-// Case 1: 
+// Case 1:
 test("should append 'st' for numbers ending with 1, except those ending with 11", () => {
   expect(getOrdinalNumber(1)).toEqual("1st");
   expect(getOrdinalNumber(21)).toEqual("21st");
@@ -31,12 +29,12 @@ test("should append 'nd' for numbers ending with 2, except those ending with 12"
 test("should append 'rd' for numbers ending with 3, except those ending with 13", () => {
   expect(getOrdinalNumber(3)).toEqual("3rd");
   expect(getOrdinalNumber(43)).toEqual("43rd");
-   expect(getOrdinalNumber(93)).toEqual("93rd");
+  expect(getOrdinalNumber(93)).toEqual("93rd");
   expect(getOrdinalNumber(823)).toEqual("823rd");
-   expect(getOrdinalNumber(183)).toEqual("183rd");
+  expect(getOrdinalNumber(183)).toEqual("183rd");
 });
 
-// Case 4: 
+// Case 4:
 test("should append 'th' for numbers ending with 4,5,6 ,7 ,8 or 9 ", () => {
   expect(getOrdinalNumber(4)).toEqual("4th");
   expect(getOrdinalNumber(25)).toEqual("25th");
@@ -46,7 +44,7 @@ test("should append 'th' for numbers ending with 4,5,6 ,7 ,8 or 9 ", () => {
   expect(getOrdinalNumber(34454559)).toEqual("34454559th");
 });
 
-// Case 5: 
+// Case 5:
 test("should append 'th' for numbers in 100's ending with 11, 12 , 13", () => {
   expect(getOrdinalNumber(111)).toEqual("111th");
   expect(getOrdinalNumber(112)).toEqual("112th");
@@ -63,8 +61,6 @@ test("should append 'th' for numbers for 11,12,13 and 'st' for 101 and 'rd' for 
   expect(getOrdinalNumber(103)).toEqual("103rd");
 });
 
-
 test("should return empty string if empty string is passed", () => {
   expect(getOrdinalNumber("")).toEqual("");
- 
 });
