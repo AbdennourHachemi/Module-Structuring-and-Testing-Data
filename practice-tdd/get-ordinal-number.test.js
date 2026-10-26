@@ -65,10 +65,16 @@ test("should append 'th' for numbers in 100's ending with 11, 12 , 13", () => {
 
 // Case 6:A test case handling the special cases like 11,12,13,101 & 103
 
-test("should append 'th' for numbers ending with ", () => {
+test("should append 'th' for numbers for 11,12,13 and 'st' for 101 and 'rd' for 103", () => {
   expect(getOrdinalNumber(11)).toEqual("11th");
   expect(getOrdinalNumber(12)).toEqual("12th");
   expect(getOrdinalNumber(13)).toEqual("13th");
   expect(getOrdinalNumber(101)).toEqual("101st");
   expect(getOrdinalNumber(103)).toEqual("103rd");
+});
+
+
+test("should return empty string if empty string is passed", () => {
+  expect(getOrdinalNumber("")).toEqual("");
+ 
 });

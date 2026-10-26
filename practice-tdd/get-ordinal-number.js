@@ -1,4 +1,9 @@
 export function getOrdinalNumber(num) {
+  //handle a non number inputs
+  if (!num) {
+    return "";
+  }
+
   const lastTwoDigits = num % 100;
 
   // Handle exceptions: 11th, 12th, 13th, 111th, etc.
