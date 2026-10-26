@@ -9,7 +9,7 @@ import { repeatStr } from "./repeat-str.js";
 // When the repeatStr function is called with these inputs,
 // Then it should return a string that contains the original `str` repeated `count` times.
 
-test("should repeat the string count times", () => {
+test("should repeat the string  3 times when  the value of count =3", () => {
   const str = "hello";
   const count = 3;
   const repeatedStr = repeatStr(str, count);
@@ -21,7 +21,7 @@ test("should repeat the string count times", () => {
 // When the repeatStr function is called with these inputs,
 // Then it should return the original `str` without repetition.
 
-test("should return the original `str` without repetition", () => {
+test("should return the original string when the count is 1", () => {
   const str = "hello";
   const count = 1;
   const repeatedStr = repeatStr(str, count);
@@ -33,7 +33,7 @@ test("should return the original `str` without repetition", () => {
 // When the repeatStr function is called with these inputs,
 // Then it should return an empty string.
 
-test("should return an empty string", () => {
+test("should return an empty string when the count is 0", () => {
   const str = "hello";
   const count = 0;
   const repeatedStr = repeatStr(str, count);
@@ -45,7 +45,7 @@ test("should return an empty string", () => {
 // When the repeatStr function is called with these inputs,
 // Then it should throw an error, as negative counts are not valid.
 
-test("should throw an error, as negative counts are not valid.", () => {
+test("should throw an error, when count is a negative number.", () => {
   const str = "hello";
   const count = -3;
   expect(() => repeatStr(str, count)).toThrow(
