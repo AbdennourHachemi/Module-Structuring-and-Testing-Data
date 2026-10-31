@@ -3,7 +3,6 @@ import test from "node:test";
 
 import { getAngleType } from "../implement/1-get-angle-type.js";
 
-
 test("Classifies right angles", () => {
   const right = getAngleType(90);
   assert.equal(right, "Right angle");
@@ -32,7 +31,6 @@ test("Classifies invalid angles", () => {
   const invalid = getAngleType(-10);
   assert.equal(invalid, "Invalid angle");
 });
-
 test("Classifies Zero angle", () => {
   const zero = getAngleType(0);
   assert.equal(zero, "Zero angle");
