@@ -40,4 +40,8 @@ test("positive numerator and negative denumerator should return false", () => {
   assert.equal(isProperFraction(5, -16), false);
 });
 
+test("negative numerator smaller then a negative denumerator should return false", () => {
+  assert.equal(isProperFraction(-50 , -16), false);
+});
+
 

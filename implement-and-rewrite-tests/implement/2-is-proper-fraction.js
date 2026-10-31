@@ -14,16 +14,21 @@
 // execute the code to ensure all tests pass.
 
 export function isProperFraction(numerator, denominator) {
- if (Number.isNaN(numerator) || Number.isNaN(denominator)|| denominator===0) {
-   return false;
- }
+  if (
+    Number.isNaN(numerator) ||
+    Number.isNaN(denominator) ||
+    denominator === 0
+  ) {
+    return false;
+  }
   if (!Number.isInteger(numerator) || !Number.isInteger(denominator)) {
     return false;
   }
-  if (numerator >= denominator ) {
+  if (numerator >= denominator) {
     return false;
   }
+  if (numerator < 0 && denominator < 0) {
+    if (Math.abs(numerator) > Math.abs(denominator)) return false;
+  }
   return true;
-
- 
 }
