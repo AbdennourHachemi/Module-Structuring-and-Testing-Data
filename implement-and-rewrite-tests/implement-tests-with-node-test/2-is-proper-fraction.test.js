@@ -17,19 +17,27 @@ test("decimal numerator should return flase", () => {
 });
 
 
-test("zero numerator", () => {
+test("zero numerator should retrun true", () => {
   assert.equal(isProperFraction(0, 5), true);
 });
 
-test("numerator bigger then denumnator", () => {
+test("numerator bigger then denumnator should return false", () => {
   assert.equal(isProperFraction(20, 15), false);
 });
-test("zero denumator", () => {
+test("zero denumator should return false", () => {
   assert.equal(isProperFraction(100, 0), false);
 });
 
-test("equal numrator and denumerator ", () => {
+test("equal numerator and denumerator should return false", () => {
   assert.equal(isProperFraction(3, 3), false);
+});
+
+test("negative numerator and positive denumerator should return true ", () => {
+  assert.equal(isProperFraction(-5, 16), true);
+});
+
+test("positive numerator and negative denumerator should return false", () => {
+  assert.equal(isProperFraction(5, -16), false);
 });
 
 
