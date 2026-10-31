@@ -18,6 +18,15 @@
 // execute the code to ensure all tests pass.
 
 export function getAngleType(angle) {
+   if (angle ==0) {
+     return "Zero angle";
+   }
+   if (angle == 360) {
+     return "Complete angle";
+   }
+  if (angle <0||angle >360) {
+    return "Invalid angle";
+  }
   if (angle < 90) {
     return "Acute angle";
   }
@@ -33,7 +42,6 @@ export function getAngleType(angle) {
   if (angle < 360) {
     return "Reflex angle";
   }
-  return "Invalid angle";
-
+ 
  
 }

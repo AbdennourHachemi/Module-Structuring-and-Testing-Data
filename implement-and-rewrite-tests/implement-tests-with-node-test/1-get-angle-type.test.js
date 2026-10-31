@@ -28,4 +28,17 @@ test("Classifies invalid angles", () => {
   const invalid = getAngleType(370);
   assert.equal(invalid, "Invalid angle");
 });
+test("Classifies invalid angles", () => {
+  const invalid = getAngleType(-10);
+  assert.equal(invalid, "Invalid angle");
+});
 
+test("Classifies Zero angle", () => {
+  const zero = getAngleType(0);
+  assert.equal(zero, "Zero angle");
+});
+
+test("Classifies Complete angle", () => {
+  const complete = getAngleType(360);
+  assert.equal(complete, "Complete angle");
+});
