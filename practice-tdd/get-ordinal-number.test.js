@@ -35,7 +35,8 @@ test("should append 'rd' for numbers ending with 3, except those ending with 13"
 });
 
 // Case 4:
-test("should append 'th' for numbers ending with 4,5,6 ,7 ,8 or 9 ", () => {
+test("should append 'th' for numbers ending with 0,4,5,6 ,7 ,8 or 9 ", () => {
+  expect(getOrdinalNumber(0)).toEqual("0th");
   expect(getOrdinalNumber(4)).toEqual("4th");
   expect(getOrdinalNumber(25)).toEqual("25th");
   expect(getOrdinalNumber(656)).toEqual("656th");
@@ -45,21 +46,28 @@ test("should append 'th' for numbers ending with 4,5,6 ,7 ,8 or 9 ", () => {
 });
 
 // Case 5:
-test("should append 'th' for numbers in 100's ending with 11, 12 , 13", () => {
-  expect(getOrdinalNumber(111)).toEqual("111th");
-  expect(getOrdinalNumber(112)).toEqual("112th");
-  expect(getOrdinalNumber(113)).toEqual("113th");
-});
-
-// Case 6:A test case handling the special cases like 11,12,13,101 & 103
-
-test("should append 'th' for numbers for 11,12,13 and 'st' for 101 and 'rd' for 103", () => {
+test("should append 'th' for ending with 11, 12 , 13", () => {
   expect(getOrdinalNumber(11)).toEqual("11th");
   expect(getOrdinalNumber(12)).toEqual("12th");
   expect(getOrdinalNumber(13)).toEqual("13th");
+  expect(getOrdinalNumber(111)).toEqual("111th");
+  expect(getOrdinalNumber(112)).toEqual("112th");
+  expect(getOrdinalNumber(113)).toEqual("113th");
+  expect(getOrdinalNumber(1011)).toEqual("1011th");
+  expect(getOrdinalNumber(31112)).toEqual("3112th");
+  expect(getOrdinalNumber(4813)).toEqual("4813th");
+
+});
+
+// Case 6:
+
+test("should append 'st' for 101 and 'rd' for 103", () => {
+  
   expect(getOrdinalNumber(101)).toEqual("101st");
   expect(getOrdinalNumber(103)).toEqual("103rd");
 });
+
+
 
 test("should return empty string if empty string is passed", () => {
   expect(getOrdinalNumber("")).toEqual("");
